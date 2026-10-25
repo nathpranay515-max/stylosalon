@@ -1,10 +1,19 @@
-// Smooth page loading
-document.addEventListener("DOMContentLoaded", function () {
+// Smooth scrolling for navigation links
 
-    // Add a small fade-in effect to the page
-    document.body.classList.add("loaded");
+document.querySelectorAll('a[href^="#"]').forEach(link => {
 
-    // Log message for testing
-    console.log("Stylo Gen's Parlor website loaded successfully!");
+    link.addEventListener("click", function(event) {
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if (target) {
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+    });
 
 });
